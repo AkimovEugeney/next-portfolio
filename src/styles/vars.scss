@@ -1,0 +1,14 @@
+$max-width: 1200px;
+$container-offset: 20px;
+$container-width: $max-width + ($container-offset * 2);
+
+$size1920: 0.521;
+$size1440: 0.694;
+$size1024: 0.977;
+$size768: 1.31;
+$size600: 2.675;
+
+:root {
+    --color-white: #fff;
+    --color-dark: #000;
+}
