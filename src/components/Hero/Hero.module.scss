@@ -1,0 +1,39 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    display: block;
+    margin-bottom: 4rem;
+    font-weight: 900;
+    font-size: 8rem;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .name {
+    display: block;
+    font-size: 10rem;
+    color: #723ade;
+  }
+
+  .lastName {
+    color: #6b62c1;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 4rem;
+    background: #270ecb;
+    background: linear-gradient(
+      to right,
+      #270ecb 0%,
+      #c146a1 17%,
+      #6623a8 38%,
+      #c32adb 81%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

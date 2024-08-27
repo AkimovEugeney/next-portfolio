@@ -1,15 +1,10 @@
 import RootLayout from './layout'
+import HomePage from '@/components/HomePage'
 
 export default function Home() {
   return (
     <RootLayout>
-      <main>
-      <div className="container">
-        <section className='hero'>
-          ghbdtn
-        </section>
-      </div>
-      </main>
+      <HomePage/>
     </RootLayout>
   );
 }
