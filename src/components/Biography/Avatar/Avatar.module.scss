@@ -1,0 +1,27 @@
+.wrap {
+  position: relative;
+  .avatar {
+    border-radius: 12px;
+    opacity: 0;
+  }
+
+  .highlight {
+    position: absolute;
+    border-radius: 12px;
+    background: linear-gradient(
+      90deg,
+      rgba(185, 184, 210, 0.8) 0%,
+      rgba(255, 255, 255, 0.9) 35%,
+      rgba(180, 218, 226, 0.7) 100%
+    );
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+
+    @media (max-width: 768px) {
+      visibility: hidden;
+    }
+  }
+}

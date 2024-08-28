@@ -1,0 +1,30 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #525574;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  font-size: 8rem;
+  text-transform: uppercase;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 2rem;
+    border-radius: 50%;
+    background-color: #525574;
+  }
+}

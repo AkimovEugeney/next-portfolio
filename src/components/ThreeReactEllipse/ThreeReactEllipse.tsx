@@ -71,7 +71,7 @@ export default function ThreeReactEllipse({ height }: IThreeReactEllipse) {
     if(rotation == 50) {
       setRotation(1)
     }
-  }, [saturation])
+  }, [rotation])
 
   if (loading) {
     return <LoaderStar height={height} />

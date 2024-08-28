@@ -5,7 +5,7 @@ import './HomePage.scss'
 export default function HomePage() {
   return (
     <main>
-      <section className='hero-section'>
+      <section className='section-one'>
         <div className='container'>
           <Hero
             className='hero'

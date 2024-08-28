@@ -1,0 +1,23 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 6rem;
+
+  .desc {   
+    color: #d4cece;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  .img {
+    border-radius: 12px;
+    @media (max-width: 768px) {
+      grid-row: 1;
+    }
+  }
+}
