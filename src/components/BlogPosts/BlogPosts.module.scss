@@ -1,0 +1,38 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #fff;
+
+  .link {
+    &:hover .more {
+      color: #e7bd14;
+      transform: scale(1.2);
+    }
+  }
+
+  .wrap {
+    border-top: 1px solid #fff;
+    padding: 4rem 0;
+  }
+
+  .titleWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    .title {
+      font-weight: 700;
+      font-size: 3rem;
+      color:#fff;
+    }
+
+    .more {
+      padding-right: 20px;
+      font-size: 1.8rem;
+      color: #fff;
+
+      transition: color .3s, transform .3s;
+    }
+  }
+}

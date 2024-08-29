@@ -1,0 +1,40 @@
+.post {
+  padding: 4rem 2rem;
+  background-color: #4e4848;
+  border-radius: 12px;
+
+  &__inner {
+    border-bottom: 1px solid #c2b8b8;;
+  }
+
+  &__title {
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+    font-size: 6rem;
+    color: #c2b8b8;
+  }
+
+  &__tags {
+    margin-bottom: 3rem;
+  }
+
+  &__created {
+    font-size: 1.6em;
+    color: #c2b8b8;
+  }
+
+  &__desc {
+    max-width: 100rem;
+    padding: 4rem 0;
+    font-size: 1.6em;
+    color: #c2b8b8;
+  }
+
+  &__img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    width: 100%;
+    height: 70rem;
+  }
+}

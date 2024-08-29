@@ -1,0 +1,12 @@
+.tags {
+  display: flex;
+  gap: 1rem;
+
+  .tag {
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #e7bd14;
+    font-size: 1.6em;
+    color: #ffffff;
+  }
+}
