@@ -8,8 +8,9 @@ import './Post.scss'
 type Props = {
   params: { id: string }
 }
+
+export const dynamic = 'force-dynamic'
 export const revalidate = 60
-export const dynamicParams = false
 
 export async function generateMetadata(
   { params }: Props,
@@ -20,6 +21,7 @@ export async function generateMetadata(
   return {
     title: post.title,
     metadataBase: new URL(pages.domain), 
+    
     openGraph: {
       images: [post.img, ...previousImages],
     },
@@ -47,7 +49,7 @@ export default async function Page({ params }: Props) {
           </div>
           <p className='post__desc'>{post.desc}</p>
           <div className='post__img'>
-            <Image src={post.img} alt='Photo' fill={true}/>
+            <Image src='/image.png' alt='Photo' width={1000} height={1000} />
           </div>
         </div>
       </div>

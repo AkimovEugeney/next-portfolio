@@ -6,8 +6,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import clsx from 'clsx'
 
-
-
 interface ITech {
   color: string
   name: string

@@ -14,10 +14,7 @@ class BiographyServices {
 
   async getWithFetch () {
     return await fetch(`${process.env.API_URL}${this.BASE_URL}`, {
-      cache: 'force-cache',
-      next: {
-        revalidate: 60
-      }
+      cache: 'no-store',
     }).then(res => res.json())
   }
 }

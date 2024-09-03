@@ -6,16 +6,8 @@ import styles from './loader.module.scss'
 
 export function LoaderStar({ height }: IThreeReactEllipse) {
   return (
-    <div
-      className={styles.loader}
-      style={{ height: height }}
-    >
-      <Star
-        className={styles.star}
-        width='18rem'
-        height='18rem'
-        color='#fff'
-      />
+    <div className={styles.loader} style={{ height: height }}>
+      <Star className={styles.star} width='18rem' height='18rem' color='#fff' />
     </div>
   )
 }

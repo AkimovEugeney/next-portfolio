@@ -42,7 +42,7 @@ export function Avatar({className, width, height, src}: IAvatar) {
         )
       }
     },comp)
-    return () => ctx.revert()
+    return () => ctx.clear()
   },[])
 
   return (

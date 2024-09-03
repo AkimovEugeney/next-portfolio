@@ -1,12 +1,12 @@
 'use client'
 
+import clsx from 'clsx'
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 
 import { renderLetters } from '@/utils/renderLetters'
 
 import styles from './Hero.module.scss'
-import clsx from 'clsx'
 
 interface IHero {
   name: string
@@ -56,10 +56,7 @@ export function Hero({ name, lastName, tag, className }: IHero) {
 
   return (
     <div className={clsx(styles.wrap, className)} ref={comp}>
-      <h1
-        className={styles.title}
-        aria-label={name + ' ' + lastName}
-      >
+      <h1 className={styles.title} aria-label={name + ' ' + lastName}>
         <p className={styles.name}>{renderLetters(name, 'name')}</p>
         <p className={styles.lastName}>{renderLetters(lastName, 'lastName')}</p>
       </h1>

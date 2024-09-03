@@ -4,11 +4,10 @@ import { Float, Line, Sphere, Stars, Trail } from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import * as THREE from 'three'
 
 import { LoaderStar } from './loader/loader'
+import { useAnimReactEllipse } from '@/hooks/useAnimReactEllipse'
 
 export interface IThreeReactEllipse {
   height: string
@@ -19,93 +18,26 @@ export default function ThreeReactEllipse({ height }: IThreeReactEllipse) {
   const [saturation, setSaturation] = useState(500)
   const [rotation, setRotation] = useState(1)
 
+  const modelRef = useRef<HTMLDivElement>(null)
+  useAnimReactEllipse({modelRef, saturation, setSaturation, setRotation, rotation})
   useEffect(() => {
     setLoading(false)
   }, [])
 
-  const modelRef = useRef<HTMLDivElement>(null)
-
-  // const starRef = useRef(null)
-  // useEffect(() => {
-  //   if (!starRef.current || !modelRef.current) return
-  //   const ctx = gsap.context(() => {
-  //     gsap.registerPlugin(ScrollTrigger) 
-  //     gsap.to(starRef.current, {
-  //       scrollTrigger: {
-  //         trigger: modelRef.current,
-  //         start: 'top top',
-  //         end: 'bottom bottom',
-  //         scrub: true,
-  //         pin: true
-  //       },
-  //       scale: 10
-  //     });
-  //   },modelRef)
-  // },[starRef.current, modelRef.current])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (modelRef.current) {
-        const rect = modelRef.current.getBoundingClientRect()
-        const start = rect.top
-        const end = rect.bottom
-        if (window.scrollY >= start && window.scrollY < end) {
-            setSaturation(value => value - 20 )
-            setRotation(value => value + 0.5)
-        }
-      }
-    }
-
-    // Добавление обработчика события
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [modelRef])
-
-  useEffect(() => {
-    if(saturation == -80) {
-      setSaturation(500)
-    }
-  }, [saturation])
-
-  useEffect(() => {
-    if(rotation == 50) {
-      setRotation(1)
-    }
-  }, [rotation])
-
   if (loading) {
     return <LoaderStar height={height} />
   }
+
   return (
-    <div
-      style={{ height: height }}
-      className='model'
-      ref={modelRef}
-    >
+    <div style={{ height: height }} className='model' ref={modelRef}>
       <Canvas camera={{ position: [10, 0, 10] }}>
-        <color
-          attach='background'
-          args={['black']}
-        />
-        <Float
-          speed={2}
-          rotationIntensity={rotation}
-          floatIntensity={1}
-        >
+        <color attach='background' args={['black']} />
+        <Float speed={2} rotationIntensity={rotation} floatIntensity={1}>
           <Atom />
         </Float>
-        <Stars
-          depth={saturation}
-          saturation={1}
-          count={500}
-          speed={0.5}
-        />
+        <Stars depth={saturation} saturation={1} count={500} speed={0.5} />
         <EffectComposer>
-          <Bloom
-            mipmapBlur
-            luminanceThreshold={1}
-            radius={0.7}
-          />
+          <Bloom mipmapBlur luminanceThreshold={1} radius={0.7} />
         </EffectComposer>
       </Canvas>
     </div>
@@ -123,12 +55,7 @@ function Atom() {
 
   return (
     <group>
-      <Line
-        worldUnits
-        points={points}
-        color='turquoise'
-        lineWidth={0.3}
-      />
+      <Line worldUnits points={points} color='turquoise' lineWidth={0.3} />
       <Line
         worldUnits
         points={points}
@@ -143,10 +70,7 @@ function Atom() {
         lineWidth={0.3}
         rotation={[0, 0, -1]}
       />
-      <Electron
-        position={[0, 0, 0.5]}
-        speed={6}
-      />
+      <Electron position={[0, 0, 0.5]} speed={6} />
       <Electron
         position={[0, 0, 0.5]}
         rotation={[0, 0, Math.PI / 3]}
@@ -158,10 +82,7 @@ function Atom() {
         speed={7}
       />
       <Sphere args={[0.55, 64, 64]}>
-        <meshBasicMaterial
-          color={[6, 0.5, 2]}
-          toneMapped={false}
-        />
+        <meshBasicMaterial color={[6, 0.5, 2]} toneMapped={false} />
       </Sphere>
     </group>
   )
@@ -190,10 +111,7 @@ function Electron({ radius = 2.75, speed = 6, ...props }) {
       >
         <mesh ref={ref}>
           <sphereGeometry args={[0.25]} />
-          <meshBasicMaterial
-            color={[10, 1, 10]}
-            toneMapped={false}
-          />
+          <meshBasicMaterial color={[10, 1, 10]} toneMapped={false} />
         </mesh>
       </Trail>
     </group>

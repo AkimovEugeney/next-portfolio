@@ -1,10 +1,10 @@
 'use client'
-import cl from 'clsx'
 import { SITE_NAME } from '@/constants/seo.constants'
+import cl from 'clsx'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { navbarLink } from './header.data'
 import './Header.scss'
-import { usePathname } from 'next/navigation'
 
 export function Header() {
   const pathname = usePathname()
