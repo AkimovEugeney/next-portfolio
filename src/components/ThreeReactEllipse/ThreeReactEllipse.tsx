@@ -6,8 +6,9 @@ import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as THREE from 'three'
 
-import { LoaderStar } from './loader/loader'
 import { useAnimReactEllipse } from '@/hooks/useAnimReactEllipse'
+import { useStateAnimation } from '@/store/store'
+import { LoaderStar } from './loader/loader'
 
 export interface IThreeReactEllipse {
   height: string
@@ -17,9 +18,11 @@ export default function ThreeReactEllipse({ height }: IThreeReactEllipse) {
   const [loading, setLoading] = useState(true)
   const [saturation, setSaturation] = useState(500)
   const [rotation, setRotation] = useState(1)
+  const isAnimation = useStateAnimation(state => state.isAnimation)
 
   const modelRef = useRef<HTMLDivElement>(null)
-  useAnimReactEllipse({modelRef, saturation, setSaturation, setRotation, rotation})
+  useAnimReactEllipse({modelRef, saturation, setSaturation, setRotation, rotation, isAnimation})
+
   useEffect(() => {
     setLoading(false)
   }, [])

@@ -6,13 +6,19 @@
   top: 3rem;
   z-index: 100;
 
-  &__wrapp {
+  &__wrap {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 3rem 5rem;
     background-color: var(--color-white);
     border-radius: 12px;
+  }
+
+  &-logo__wrap {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
   }
 
   &__logo {

@@ -8,6 +8,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Tags } from '../Tags/Tags'
+import { useStateAnimation } from '@/store/store'
 interface IBlogPostsProps {
   data: IBlogPost[]
 }
@@ -15,9 +16,11 @@ interface IBlogPostsProps {
 export function BlogPosts({ data }: IBlogPostsProps) {
   const comp = useRef<HTMLUListElement>(null)
   const itemsRef = useRef<Array<HTMLLIElement | null>>([]);
+  const isAnimation = useStateAnimation(state => state.isAnimation)
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    if(isAnimation) {
+      gsap.registerPlugin(ScrollTrigger)
     const ctx = gsap.context(() =>{
       if(!itemsRef.current) return
       itemsRef.current.forEach(item => {
@@ -41,7 +44,8 @@ export function BlogPosts({ data }: IBlogPostsProps) {
       })
       }, comp);
       return () => ctx.revert()
-  },[])
+    }
+  },[isAnimation])
 
   return (
     <ul className={styles.list} ref={comp}>
