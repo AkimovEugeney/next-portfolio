@@ -1,8 +1,7 @@
 import { Biography } from '@/components/Biography/Biography'
-import { biographyData } from '@/components/Biography/biography.data'
 import { Tech } from '@/components/Tech/Tech'
-import { IBiography, serviceBiography } from '@/services/biography.service'
-import type { GetStaticProps, Metadata } from 'next'
+import { serviceBiography } from '@/services/biography.service'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
  title: 'About',
@@ -18,7 +17,7 @@ export default async function Page() {
     <section className='section-one'>
       <div className="container">
         <h1 className='title'>Akimov Eugeney</h1>
-        <Biography img={biographyData_.img} text={biographyData_.text}/>
+        <Biography img={biographyData_.img} text={biographyData_.text} />
       </div>
     </section>
     <section className='section'>

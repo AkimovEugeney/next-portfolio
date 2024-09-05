@@ -49,7 +49,7 @@ export default async function Page({ params }: Props) {
           </div>
           <p className='post__desc'>{post.desc}</p>
           <div className='post__img'>
-            <Image src='/image.png' alt='Photo' width={1000} height={1000} />
+            <Image src={post.img} alt='Photo' width={1000} height={1000} />
           </div>
         </div>
       </div>
