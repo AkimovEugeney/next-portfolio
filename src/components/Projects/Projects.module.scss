@@ -1,0 +1,40 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+
+  .item {
+    border-radius: 12px;
+    background-color: #857f7f;
+
+    .img {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px 12px 0 0;
+      object-fit: cover;
+      width: 100%;
+      height: 50rem;
+    }
+
+    .inner {
+      padding: 20px;
+
+      .tags {
+        margin-bottom: 2rem;
+      }
+
+      .title {
+        margin-bottom: 2rem;
+        color: #fff;
+        font-size: 3.5rem;
+        font-weight: 700;
+      }
+
+      .desc {
+        color: #fff;
+        font-size: 2.2rem;
+        font-weight: 400;
+      }
+    }
+  }
+}

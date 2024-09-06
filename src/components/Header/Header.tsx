@@ -3,7 +3,7 @@
 import cl from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Suspense, useEffect } from 'react'
+import { Suspense } from 'react'
 
 import { SITE_NAME } from '@/constants/seo.constants'
 
@@ -33,7 +33,14 @@ export function Header() {
               {SITE_NAME}
             </Link>
             <Suspense fallback={<div>...</div>}>
-              {typeof isAnimation != 'undefined' ? <Switch isChecked={isAnimation} onClick={toggleAnimation} /> : null}
+              {typeof isAnimation != 'undefined' ? (
+                <Switch
+                  isChecked={isAnimation}
+                  onClick={toggleAnimation}
+                  label='Animation'
+                  labelPosition='left'
+                />
+              ) : null}
             </Suspense>
           </div>
           <nav>

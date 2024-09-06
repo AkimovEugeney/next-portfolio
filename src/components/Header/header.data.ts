@@ -10,10 +10,6 @@ export const navbarLink: INavbarLink[] = [
     link: pages.about
   },
   {
-    name: 'Projects',
-    link: pages.projects
-  },
-  {
     name: 'Blog',
     link: pages.blog
   },

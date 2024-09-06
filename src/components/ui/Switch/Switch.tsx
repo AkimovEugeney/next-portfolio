@@ -17,7 +17,7 @@ export function Switch({
   onClick,
   label,
   labelPosition = 'left',
-  spacing = 10
+  spacing = 2
 }: ISwitch) {
 
   return (
